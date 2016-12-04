@@ -29,7 +29,7 @@ On the frontend level - Angular1 with Bootstrap Material. I managed to implement
 
 ### Walkthrough screenshots
 
-If you do not want to deploy this application to see it in action, I have put around few screenshots just for you to get a grip on it. You can  see them on this [link].  
+If you do not want to deploy this application to see it in action, I have put around few screenshots just for you to get a grip on it. [You can see them on this link](http://sasa-radovanovic.github.io/klm.html).  
 
 ### Contributors
 
