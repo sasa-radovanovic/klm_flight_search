@@ -1,0 +1,35 @@
+.cursor-chg {
+	cursor: pointer !important;
+}
+
+.limitedAlert {
+	max-width: 100px;
+}
+.airportTitle {
+	font-size: 26px;
+}
+.fareDisplay {
+	min-height: 150px;
+}
+.fareData {
+	font-size: 22px;
+	font-weight: bold;
+}
+.fareCurrency {
+	font-size: 16px;
+}
+.airportMoreInfo {
+	position: absolute;
+	bottom: 0px;
+	right: 10px;
+	font-style: italic;
+}
+.currencyHolder {
+	padding-top: 15px;
+}
+.statsHolder {
+	min-height: 400px;
+}
+.progressStatus {
+	min-height: 30px;
+}

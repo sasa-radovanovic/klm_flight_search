@@ -1,0 +1,16 @@
+com\klm\flights\data\airports\Page.class
+com\klm\flights\core\config\KLM_WebFileConfiguration.class
+com\klm\flights\data\airports\SearchedAirports.class
+com\klm\flights\data\FlightFaresFullResponse.class
+com\klm\flights\data\FlightFareResult.class
+com\klm\flights\data\airports\PagedSearchAirportData.class
+com\klm\flights\data\airports\Coordinates.class
+com\klm\flights\core\config\KLM_OAuth2Config.class
+com\klm\flights\core\config\KLM_WebSecurityConfig.class
+com\klm\flights\data\statistics\SystemStatistics.class
+com\klm\flights\data\airports\AirportData.class
+com\klm\flights\core\KLM_InMemoryCache.class
+com\klm\flights\core\rest_controllers\KLM_FlightsRestCtrl.class
+com\klm\flights\core\KLM_FlightsApplication.class
+com\klm\flights\core\rest_controllers\KLM_SystemStatisticsRestCtrl.class
+com\klm\flights\core\KLM_ClientConsumerService.class

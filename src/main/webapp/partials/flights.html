@@ -1,0 +1,93 @@
+<script type="text/ng-template" id="originModalInstance.html">
+   <div class="modal-header">
+        <h3 class="modal-title">{{labels.select[lang]}} {{type}}</h3>
+   </div>
+   <div class="modal-body">
+	   </br>
+       <div class="input-group">
+  			<input type="text" class="form-control" ng-model="searchTerm" placeholder="{{labels.enterHint[lang]}}" aria-describedby="basic-addon2">
+  			<span class="btn btn-primary input-group-addon" id="basic-addon2" ng-disabled="searching" ng-click="search(1)">{{labels.search[lang]}}</span>
+		</div>
+		</br>
+		</br>
+			<div ng-if="searching">
+				<div class="alert alert-info">{{labels.searching[lang]}}</div>
+			</div>
+			<div ng-if="error != 0">
+				<div class="alert alert-danger" ng-if="error==2">{{labels.noDataRetrieved[lang]}}</div>
+				<div class="alert alert-warn" ng-if="error==1">{{labels.noCharactersLength[lang]}}</div>
+			</div>
+		</br>
+		<div ng-if="!searching && error==0 && tableData.page.totalElements > 0">
+        	<table class="table">
+				<thead>
+				</thead>
+				<tbody>
+					<tr ng-repeat="airport in tableData._embedded.locations">
+						<td>
+							<a class="cursor-chg" ng-click="select(airport.code, airport.name)">
+								{{airport.code}} {{airport.name}}
+							</a>
+						</td>
+						<td>
+							<span ng-if="airport.parent != null">{{airport.parent.name}}</span>
+							<span ng-if="airport.parent.parent != null">,  {{airport.parent.parent.name}}</span>
+						</td>
+					</tr>
+				</tbody>
+  			</table>
+			<div ng-if="tableData.page.totalPages > 1"><ul uib-pagination total-items="tableData.page.totalElements" ng-model="currentPage" ng-change="search(currentPage)"></ul></div>
+		</div>
+    </div>
+
+</script>
+
+
+<div class="well page">
+    <h3>{{labels.searchTitle[lang]}}</h3>
+</div>
+
+
+<div class="well page">
+    <h4>{{labels.selectRoute[lang]}}</h4>
+    <div class="col-lg-6">
+	    <button class="btn btn-primary btn-sm" ng-click="airportModal('origin')">
+	       {{labels.selectOrigin[lang]}} 
+	    </button>
+	    <div ng-if="origin.code != ''" class="alert alert-info">{{origin.code}} {{origin.name}}</div>
+	    <div ng-if="origin.code == ''" class="alert alert-warning"> {{labels.noOriginAirport[lang]}}</div>
+    </div>
+     <div class="col-lg-6">
+	    <button class="btn btn-primary btn-sm" ng-click="airportModal('destination')">
+	       {{labels.selectDestination[lang]}} 
+	    </button>
+	    <div ng-if="destination.code != ''" class="alert alert-info">{{destination.code}} {{destination.name}}</div>
+	    <div ng-if="destination.code == ''" class="alert alert-warning">{{labels.noDestAirport[lang]}}</div>
+     </div>
+    <button ng-click="findFares()" class="btn btn-primary btn-lg" ng-disabled="origin.code == '' || destination.code == ''">{{labels.findFares[lang]}}</button>
+</div>
+
+<div class="well fareDisplay" ng-if="fareData.airports || error!=0 || searchingFares">
+	<div class="alert alert-info text-center" ng-if="searchingFares">
+		{{labels.searchingFares[lang]}} {{origin.name}} - {{destination.name}}
+	</div>
+	<div class="alert alert-danger text-center" ng-if="!searchingFares && error!=0">
+		{{labels.noFaresFound[lang]}}
+	</div>
+	<div class="row col-lg-12" ng-if="!searchingFares && error==0 && fareData.airports">
+	    <div class="alert alert-lg alert-info col-lg-4">
+	    	<p class="airportTitle">{{origin.code}}</p>
+	    	<p> {{origin.name}} </p>
+	    	<a class="airportMoreInfo cursor-chg" target="_blank" href="{{coordinatesLink(origin.code)}}">{{labels.location[lang]}}</a>
+	    </div>
+	    <div class="col-lg-4 text-center currencyHolder">
+	    	<p class="fareData">{{fareData.flightFare.amount}}</p>
+	    	<p class="fareCurrency">{{fareData.flightFare.currency}}</p>
+	    </div>
+	    <div class="alert alert-lg alert-info col-lg-4">
+	    	<p class="airportTitle">{{destination.code}}</p>
+	    	<p> {{destination.name}} </p>
+	    	<a class="airportMoreInfo cursor-chg" target="_blank" href="{{coordinatesLink(destination.code)}}">{{labels.location[lang]}}</a>
+	    </div>
+    </div>
+</div>

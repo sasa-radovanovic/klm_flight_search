@@ -1,0 +1,53 @@
+<div class="well page">
+    <h3>{{labels.systemStatistics[lang]}}</h3>
+</div>
+
+
+<div class="well page statsHolder">
+	<div class="col-lg-12">
+	   	<div class="alert alert-info col-lg-12 text-center">
+    		<p class="fareData">{{stats.totalRequests}}</p>
+    		<p>{{labels.totalRequests[lang]}}</p>
+    	</div>
+	</div>
+
+    <div class="col-lg-12">
+    	<div class="alert alert-info col-lg-4 text-center">
+    		<p class="fareData">{{roundNum(stats.avgRspTime)}} s</p>
+    		<p>{{labels.avgRspTime[lang]}}</p>
+    	</div>
+    	<div class="alert alert-info col-lg-4 text-center">
+    		<p class="fareData">{{stats.minRspTime / 1000}} s</p>
+    		<p>{{labels.minimalRspTime[lang]}}</p>
+    	</div>
+    	 <div class="alert alert-info col-lg-4 text-center">
+    		<p class="fareData">{{stats.maxRspTime / 1000}} s</p>
+    		<p>{{labels.maximalRspTime[lang]}}</p>
+    	</div>
+    </div>
+    
+    <div class="col-lg-12">
+    	<div class="alert alert-success col-lg-4 text-center">
+    		<p class="fareData">{{stats.total_OK}}</p>
+    		<p>{{labels.totalOKRequests[lang]}}</p>
+    	</div>
+    	<div class="alert alert-danger col-lg-4 text-center">
+    		<p class="fareData">{{stats.total_4xx}}</p>
+    		<p>{{labels.total4XXRequests[lang]}}</p>
+    	</div>
+    	 <div class="alert alert-danger col-lg-4 text-center">
+    		<p class="fareData">{{stats.total_5xx}}</p>
+    		<p>{{labels.total5XXRequests[lang]}}</p>
+    	</div>
+    </div>
+    
+    <div class="row col-lg-12">
+        <div class="col-lg-4 progressStatus">
+	        <uib-progressbar class="progress-striped progressStatus" type="success" value="(stats.total_OK / stats.totalRequests) * 100">
+	         <strong>OK</strong>
+	        </uib-progressbar>
+        </div>
+        <div class="col-lg-4 progressStatus"><uib-progressbar class="progress-striped progressStatus" type="danger" value="(stats.total_4xx / stats.totalRequests) * 100" type="warning"><strong>4XX</strong></uib-progressbar></div>
+        <div class="col-lg-4 progressStatus"><uib-progressbar class="progress-striped progressStatus" value="(stats.total_5xx / stats.totalRequests) * 100" type="danger"><strong>5XX</strong></uib-progressbar></div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+{"properties": [
+  {
+    "name": "services.airportDetails",
+    "type": "java.lang.String",
+    "description": "A description for 'services.airportDetails'"
+  },
+  {
+    "name": "services.fares",
+    "type": "java.lang.String",
+    "description": "A description for 'services.fares'"
+  },
+  {
+    "name": "services.partialSearch",
+    "type": "java.lang.String",
+    "description": "A description for 'services.partialSearch'"
+  },
+  {
+    "name": "oauth.clientid",
+    "type": "java.lang.String",
+    "description": "A description for 'oauth.clientid'"
+  },
+  {
+    "name": "oauth.secret",
+    "type": "java.lang.String",
+    "description": "A description for 'oauth.secret'"
+  },
+  {
+    "name": "oauth.tokenAccessUrl",
+    "type": "java.lang.String",
+    "description": "A description for 'oauth.tokenAccessUrl'"
+  }
+]}

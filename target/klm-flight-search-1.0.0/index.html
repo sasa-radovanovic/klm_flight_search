@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <!-- inject:css -->
+    <link rel="stylesheet" href="resources/vendor/css/lib.min.css">
+    <link rel="stylesheet" href="resources/css/app.css">
+    <!-- endinject -->
+    <title></title>
+</head>
+<body>
+
+
+<div class="navbar navbar-info">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#/flights">KLM</a>
+    </div>
+    <div class="navbar-collapse collapse navbar-responsive-collapse">
+        <ul class="nav navbar-nav">
+            <li><a href="#/database">{{labels.airportDatabase[lang]}}</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+        	<li>
+        		<div class="btn-group">
+			        <label class="btn btn-info" ng-model="lang" uib-btn-radio="'en'" uncheckable>en</label>
+			        <label class="btn btn-info" ng-model="lang" uib-btn-radio="'nl'" uncheckable>nl</label>			    
+			     </div>
+        	</li>
+        	<li>
+        		<div class="btn-group">
+			        <label class="btn btn-info" ng-model="currency" uib-btn-radio="'USD'" uncheckable>USD</label>
+			        <label class="btn btn-info" ng-model="currency" uib-btn-radio="'EUR'" uncheckable>EUR</label>			    
+			     </div>
+        	</li>
+            <li><a href="#/stats">{{labels.systemStatistics[lang]}}</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="container">
+    <section ng-view="">
+
+    </section>
+</div>
+
+<!-- inject:js -->
+<script src="resources/vendor/js/lib.min.js"></script>
+<script src="resources/js/app.js"></script>
+<script src="resources/js/dataabaseCtrl.js"></script>
+<script src="resources/js/flightsCtrl.js"></script>
+<script src="resources/js/quickTranslate.js"></script>
+<script src="resources/js/statsCtrl.js"></script>
+<!-- endinject -->
+
+<script>
+    $.material.init()
+</script>
+
+</body>
+</html>
